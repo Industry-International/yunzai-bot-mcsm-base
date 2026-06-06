@@ -10,7 +10,7 @@ RUN apt update \
         chromium \
         redis-server \
     && curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
-        apt install -y --no-install-recommends nodejs \
+    &&    apt install -y --no-install-recommends nodejs \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 https://github.com/TimeRainStarSky/Yunzai /app \
