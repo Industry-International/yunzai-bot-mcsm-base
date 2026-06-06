@@ -2,6 +2,10 @@
 FROM debian:bookworm-slim
 
 RUN apt update \
+    && apt install -y --no-install-recommends gnupg ca-certificates \
+    && curl -fsSL https://packages.valkey.io/valkey-keyring.gpg | gpg --dearmor -o /usr/share/keyrings/valkey-archive-keyring.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/valkey-archive-keyring.gpg] https://packages.valkey.io/deb bookworm main" > /etc/apt/sources.list.d/valkey.list \
+    && apt update \
     && apt install -y --no-install-recommends \
         ffmpeg \
         git \
