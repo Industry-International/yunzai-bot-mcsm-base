@@ -2,17 +2,13 @@
 FROM debian:bookworm-slim
 
 RUN apt update \
-    && apt install -y --no-install-recommends gnupg ca-certificates curl \
-    # jsdelivr加速github源密钥，国内稳定可解析
-    && curl -fsSL https://cdn.jsdelivr.net/gh/valkey-io/valkey-keyring@main/valkey-keyring.gpg | gpg --dearmor -o /usr/share/keyrings/valkey-archive-keyring.gpg \
-    && echo "deb [signed-by=/usr/share/keyrings/valkey-archive-keyring.gpg] https://packages.valkey.io/deb bookworm main" > /etc/apt/sources.list.d/valkey.list \
-    && apt update \
     && apt install -y --no-install-recommends \
         ffmpeg \
         git \
+        curl \
         chromium \
         nodejs \
-        valkey-redis-compat \
+        valkey \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 https://github.com/TimeRainStarSky/Yunzai /app \
