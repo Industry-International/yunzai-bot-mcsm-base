@@ -8,7 +8,7 @@ RUN apt update \
         curl \
         chromium \
         nodejs \
-        valkey \
+        redis-server \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 https://github.com/TimeRainStarSky/Yunzai /app \
