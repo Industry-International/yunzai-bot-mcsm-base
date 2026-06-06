@@ -1,4 +1,4 @@
-name: debian12-docker-publish
+name: TRSS-Yunzai-debian12-docker-publish
 
 on:
   workflow_dispatch:  # 手动触发
