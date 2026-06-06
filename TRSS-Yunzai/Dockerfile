@@ -1,7 +1,8 @@
 # 基于Debian 12 (bookworm) slim版本构建，amd64架构
-FROM debian:bookworm-slim
+FROM ubuntu:22.04
 
-RUN apt update \
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+    && apt update \
     && apt install -y --no-install-recommends \
         ca-certificates \
         ffmpeg \
@@ -9,7 +10,7 @@ RUN apt update \
         curl \
         chromium \
         nodejs \
-        redis-server \
+        valkey-redis-compat \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 https://github.com/TimeRainStarSky/Yunzai /app \
