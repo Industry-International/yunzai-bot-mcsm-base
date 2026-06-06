@@ -3,6 +3,7 @@ FROM debian:bookworm-slim
 
 RUN apt update \
     && apt install -y --no-install-recommends \
+        ca-certificates \
         ffmpeg \
         git \
         curl \
